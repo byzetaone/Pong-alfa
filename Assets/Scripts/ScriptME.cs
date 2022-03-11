@@ -12,6 +12,9 @@ public class ScriptME : MonoBehaviour
     public Rigidbody2D rb; //referencia de la fisica del objeto
     public Rigidbody2D otro_yo;
 
+    public Rigidbody2D rb_me; //referencia de la fisica del objeto
+    public Rigidbody2D otro_yo_me;
+
     private float move; //lo usaremos para mover al jugador
     private Vector2 StartPos; //para reiniciar posiciones tras marcar tanto
 
@@ -39,6 +42,7 @@ public class ScriptME : MonoBehaviour
 
             move = Input.GetAxisRaw("Vertical");
             rb.velocity = new Vector2(rb.velocity.x, move * speed);
+            rb_me.velocity = new Vector2(rb.velocity.x, move * speed);
             if (Input.GetKeyDown(KeyCode.Space) && transpaso == true)
             {
                 player1 = false;
@@ -55,6 +59,7 @@ public class ScriptME : MonoBehaviour
 
             move = Input.GetAxisRaw("Vertical");
             otro_yo.velocity = new Vector2(rb.velocity.x, move * speed);
+            otro_yo_me.velocity = new Vector2(rb.velocity.x, move * speed);
             if (Input.GetKeyDown(KeyCode.Space) && transpaso == true)
             {
                 player1 = true;
