@@ -8,6 +8,7 @@ public class Game_Manager : MonoBehaviour
     public GameObject ball;
     public GameObject Player1;
     public GameObject Player2;
+    public GameObject Datos;
    
     public GameObject IA;
 
@@ -18,11 +19,17 @@ public class Game_Manager : MonoBehaviour
     public Text Player2Text;
     public Text Player_record_ext;
 
+    private string record_actual_texto = "Pref_record";
+
+
+
     private int scoreplayer1;
     private int scoreplayer2;
     public  int scoreplayer_record;
 
     public int maxScore=2;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -72,8 +79,12 @@ public class Game_Manager : MonoBehaviour
 
     public void Score_Record()
     {
+        
         scoreplayer_record++;
         Player_record_ext.text = scoreplayer_record.ToString();
+        PlayerPrefs.SetInt(record_actual_texto, scoreplayer_record);
+
+
 
     }
     public void checkvictory()
@@ -107,6 +118,7 @@ public class Game_Manager : MonoBehaviour
        
     }
 
- 
+
+    
 
 }
